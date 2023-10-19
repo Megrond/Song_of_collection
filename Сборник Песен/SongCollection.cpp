@@ -16,14 +16,12 @@ void SongCollection::show()
 		cout << endl;
 	}
 }
-
 void SongCollection::addByUser()
 {
 	Song temp{};
 	temp.fillByUser();
 	add(temp);
 }
-
 void SongCollection::add(Song song)
 {
 	Song* temp = new Song[size + 1];
@@ -37,7 +35,6 @@ void SongCollection::add(Song song)
 	Songs[size] = song;
 	size++;
 }
-
 void SongCollection::saveSong()
 {
 	FILE* db_file{};
@@ -60,7 +57,6 @@ void SongCollection::saveSong()
 	}
 	return;
 }
-
 void SongCollection::loadSong()
 {
 	FILE* db_file{};
@@ -133,20 +129,33 @@ void SongCollection::searchSongName()
 		}
 	}
 }
-//void TaskCollection::deleteData()
-//{
-//	cout << "”кажите название задачи: ";
-//	char needle[256]{};
-//	cin >> needle;
-//
-//	for (size_t i{}; i < size; i++)
-//	{
-//		if (strcmp(needle, Tasks[i].name) == 0)
-//		{
-//			
-//		}
-//	}
-//}
+void SongCollection::deleteByUser()
+{
+	int num{};
+	cout << "”кажите песню дл€ удалени€: " << endl;
+	cin >> num;
+	deleteData(num);
+}
+void SongCollection::deleteData(int num)
+{
+	Song* temp = new Song [size - 1];
+
+	for (size_t i = 0; i < (num - 1); i++)
+	{
+		temp[i] = Songs[i];
+	}
+	for (size_t i = num; i < size; i++)
+	{
+		temp[i - 1] = Songs[i];
+	}
+	delete[] Songs;
+	Songs = temp;
+	size--;
+}
+
+
+
+
 //void TaskCollection::load()
 //{
 //	ifstream in("db.txt");

@@ -32,9 +32,9 @@ int main()
 		case 3:
 			songs.editSong();
 			break;
-			//case 4:
-			//	tasks.deleteData();
-			//	break;
+		case 4:
+			songs.deleteByUser();
+			break;
 		case 5:
 			songs.searchSongName();
 			break;
@@ -43,5 +43,7 @@ int main()
 		}
 	}
 	songs.saveSong();
+	cout << "Файл успешно сохранен." << endl;
+
 	return 0;
 }

@@ -13,5 +13,6 @@ struct  SongCollection {
 	void loadSong();
 	void editSong();
 	void searchSongName();
-	//void deleteData();
+	void deleteByUser();
+	void deleteData(int num);
 };
